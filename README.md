@@ -14,4 +14,7 @@ double clef primaire (name + year)
   * film_name
   * film_year
 
- 
+#rempalcer dbname par le nom de la base de donnée et dumpfile par le chemin du dump
+
+pg_dump dbname > dumpfile
+  

@@ -1,0 +1,10 @@
+CREATE USER name [ [ WITH ] option [ ... ] ]
+
+where option can be:
+
+      SYSID uid
+    | CREATEDB | NOCREATEDB
+    | CREATEUSER | NOCREATEUSER
+    | IN GROUP groupname [, ...]
+    | [ ENCRYPTED | UNENCRYPTED ] PASSWORD 'password'
+    | VALID UNTIL 'abstime' 

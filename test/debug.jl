@@ -1,4 +1,4 @@
-Horror = Film(name="Le cube",year=1996,theme="Horror")
+Horror = Film(name="Le cube 2",year=1999,theme="Horror")
 dbconn=IMDBTestAppUtils.opendbconn()
 PostgresqlDAO.Controller.create_entity!(Horror,dbconn)
 typeof(Horror)

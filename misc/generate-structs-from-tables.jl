@@ -25,4 +25,4 @@ dbconn = IMDBTestAppUtils.opendbconn()
 Tool.generate_julia_code(dbconn,out_dir)
 
 
-PagilaUtil.closeDBConn(dbconn)
+IMDBTestAppUtils.closedbconn(dbconn)
