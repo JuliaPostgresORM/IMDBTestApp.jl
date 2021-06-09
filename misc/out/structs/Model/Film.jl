@@ -1,21 +1,21 @@
 mutable struct Film <: IFilm 
 
-  name::Union{Missing,String}
-  year::Union{Missing,Int16}
-  theme::Union{Missing,String}
-  actorFilmAssos::Union{Missing,Vector{Model.IActorFilmAsso}}
+  id::Union{Nothing,Missing,Int32}
+  codeName::Union{Nothing,Missing,String}
+  year::Union{Nothing,Missing,Int16}
+  actorFilmAssos::Union{Nothing,Missing,Vector{Model.IActorFilmAsso}}
 
   Film(args::NamedTuple) = Film(;args...)
   Film(;
-    name = missing,
+    id = missing,
+    codeName = missing,
     year = missing,
-    theme = missing,
     actorFilmAssos = missing,
   ) = (
     x = new(missing,missing,missing,missing,);
-    x.name = name;
+    x.id = id;
+    x.codeName = codeName;
     x.year = year;
-    x.theme = theme;
     x.actorFilmAssos = actorFilmAssos;
     return x
   )

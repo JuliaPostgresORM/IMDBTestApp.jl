@@ -1,21 +1,23 @@
 
-data_type = Model.Film
-PostgresqlDAO.getdao(x::Model.Film) = return(DAO.FilmDAO)
+data_type = Model.Actor
+PostgresORM.get_orm(x::Model.Actor) = return(ORM.ActorORM)
 get_schema_name() = "public"
-get_table_name() = "film"
+get_table_name() = "actor"
 
 
 # Declare the mapping between the properties and the database columns
 get_columns_selection_and_mapping() = return columns_selection_and_mapping
 const columns_selection_and_mapping = Dict(
-  :name => "name", 
-  :year => "year", 
-  :theme => "theme", 
+  :id => "id", 
+  :birthDate => "birth_date", 
+  :gender => "gender", 
+  :firstname => "firstname", 
+  :lastname => "lastname", 
 )
 
 
 # Declare which properties are used to uniquely identify an object
-get_id_props() = return [:name,:year,]
+get_id_props() = return [:id,]
 
 # Associate the onetomany properties to the corresponding manytoone peroperties in the other classes 
 get_onetomany_counterparts() = return onetomany_counterparts
@@ -23,8 +25,8 @@ const onetomany_counterparts = Dict(
 
   :actorFilmAssos => (
     data_type = Model.ActorFilmAsso, # The struct where the associated manytoone property is
-    property = :film, # The name of the associated manytoone property
-    action_on_remove = CRUDType.update), # Change this to 'CRUDType.delete' if the object doesn't make sense when orphaned 
+    property = :actor, # The name of the associated manytoone property
+    action_on_remove = PostgresORM.CRUDType.update), # Change this to 'PostgresORM.CRUDType.delete' if the object doesn't make sense when orphaned 
 
 )
 

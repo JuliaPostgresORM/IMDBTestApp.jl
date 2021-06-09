@@ -3,9 +3,9 @@ using LibPQ
 function opendbconn()
     database = "imdbtestapp"
     user = "imdbtestapp"
-    host = "localhost"
-    port = "5433"
-    password = "Medoxx95"
+    host = "127.0.0.1"
+    port = "5432"
+    password = "1234"
 
     conn = LibPQ.Connection("host=$(host)
                              port=$(port)

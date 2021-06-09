@@ -1,47 +1,51 @@
 module IMDBTestApp
 
-greet() = print("Hello World!")
+   greet() = print("Hello World!")
 
-module IMDBTestAppUtils
+   module Enum
+    include("./Enum/enums.jl")
+   end # module Enum
 
-    # using DataFrames
+   module IMDBTestAppUtil
 
-    export opendbconn, closedbconn
-    include("./util/utils.jl")
+       # using DataFrames
 
-end # module IMDBTestAppUtils
+       export opendbconn, closedbconn
+       include("./IMDBTestAppUtil/utils.jl")
 
-module Model
+   end # module IMDBTestAppUtils
 
-   using Dates, TimeZones, UUIDs, PostgresqlDAO, PostgresqlDAO.Model
-   export Actor, Film, ActorFilmAsso
+   module Model
 
-   include("./Model/abstract-types.jl")
-   include("./Model/Actor.jl")
-   include("./Model/Film.jl")
-   include("./Model/ActorFilmAsso.jl")
+      using Dates, TimeZones, UUIDs, PostgresORM
+      using ..Enum.Gender
+      export Actor, Film, ActorFilmAsso
 
- end # module Model
+      include("./Model/abstract-types.jl")
+      include("./Model/Actor.jl")
+      include("./Model/Film.jl")
+      include("./Model/ActorFilmAsso.jl")
 
- module DAO
-   using ..Model, PostgresqlDAO
-   module ActorDAO
-     using ..DAO
-     using ..Model, PostgresqlDAO,PostgresqlDAO.Model.Enums.CRUDType
-     include("./DAO/ActorDAO.jl")
-   end
-   module ActorFilmAssoDAO
-    using ..DAO
-    using ..Model, PostgresqlDAO,PostgresqlDAO.Model.Enums.CRUDType
-     include("./DAO/ActorFilmAssoDAO.jl")
-   end
+   end # module Model
 
-   module FilmDAO
-      using ..DAO
-      using ..Model, PostgresqlDAO,PostgresqlDAO.Model.Enums.CRUDType
-     include("./DAO/FilmDAO.jl")
-  end
+   module ORM
 
- end #module DAO
+      module ActorORM
+        using ..ORM, ...Model
+        using PostgresORM
+        include("./ORM/ActorORM.jl")
+      end
+      module ActorFilmAssoORM
+        using ..ORM, ...Model
+        using PostgresORM
+        include("./ORM/ActorFilmAssoORM.jl")
+      end
+      module FilmORM
+        using ..ORM, ...Model
+        using PostgresORM
+        include("./ORM/FilmORM.jl")
+     end
+
+   end #module ORM
 
 end # module

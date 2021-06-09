@@ -2,3 +2,9 @@ name = "IMDBTestApp"
 uuid = "a909bf3c-122c-4e44-a456-830513011ea1"
 authors = ["Medi <medirossetti@yahoo.fr>"]
 version = "0.1.0"
+
+[deps]
+Dates = "ade2ca70-3891-5945-98fb-dc099432e06a"
+LibPQ = "194296ae-ab2e-5f79-8cd4-7183a0a5a0d1"
+TimeZones = "f269a46b-ccf7-5d73-abea-4c690281aa53"
+UUIDs = "cf7118a7-6976-5b1a-9a39-7adc72f591a4"
