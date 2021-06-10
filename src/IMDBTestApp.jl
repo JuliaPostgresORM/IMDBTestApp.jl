@@ -1,6 +1,6 @@
 module IMDBTestApp
 
-   greet() = print("Hello World!")
+   greet() = print("Hello World")
 
    module Enum
     include("./Enum/enums.jl")

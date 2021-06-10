@@ -1,9 +1,9 @@
-mutable struct Film <: IFilm 
+mutable struct Film <: IFilm
 
-  id::Union{Nothing,Missing,Int32}
-  codeName::Union{Nothing,Missing,String}
-  year::Union{Nothing,Missing,Int16}
-  actorFilmAssos::Union{Nothing,Missing,Vector{Model.IActorFilmAsso}}
+  id::Union{Missing,Int32}
+  codeName::Union{Missing,String}
+  year::Union{Missing,Int16}
+  actorFilmAssos::Union{Missing,Vector{Model.IActorFilmAsso}}
 
   Film(args::NamedTuple) = Film(;args...)
   Film(;
@@ -20,4 +20,4 @@ mutable struct Film <: IFilm
     return x
   )
 
-end 
+end

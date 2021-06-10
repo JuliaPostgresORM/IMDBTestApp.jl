@@ -1,7 +1,7 @@
-mutable struct ActorFilmAsso <: IActorFilmAsso 
+mutable struct ActorFilmAsso <: IActorFilmAsso
 
-  film::Union{Nothing,Missing,Model.IFilm}
-  actor::Union{Nothing,Missing,Model.IActor}
+  film::Union{Missing,Model.IFilm}
+  actor::Union{Missing,Model.IActor}
 
   ActorFilmAsso(args::NamedTuple) = ActorFilmAsso(;args...)
   ActorFilmAsso(;
@@ -14,4 +14,4 @@ mutable struct ActorFilmAsso <: IActorFilmAsso
     return x
   )
 
-end 
+end
