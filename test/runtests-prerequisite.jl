@@ -12,6 +12,9 @@ using Test
 push!(LOAD_PATH, ENV["PostgresORM_PATH"])
 
 using PostgresORM
+using PostgresORM.PostgresORMUtil
+using PostgresORM.Controller
+using PostgresORM.CRUDType
 
 using IMDBTestApp
 using IMDBTestApp.IMDBTestAppUtil
