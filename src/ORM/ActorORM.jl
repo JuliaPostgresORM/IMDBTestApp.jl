@@ -23,7 +23,7 @@ get_id_props() = return [:id,]
 get_onetomany_counterparts() = return onetomany_counterparts
 const onetomany_counterparts = Dict(
 
-  :actorFilmAssos => (
+  :actorFilmAssoes => (
     data_type = Model.ActorFilmAsso, # The struct where the associated manytoone property is
     property = :actor, # The name of the associated manytoone property
     action_on_remove = PostgresORM.CRUDType.update), # Change this to 'PostgresORM.CRUDType.delete' if the object doesn't make sense when orphaned 
@@ -33,7 +33,7 @@ const onetomany_counterparts = Dict(
 # Override the abstract types 
 get_types_override() = return types_override
 const types_override = Dict(
-  :actorFilmAssos => Vector{Model.ActorFilmAsso}, 
+  :actorFilmAssoes => Vector{Model.ActorFilmAsso}, 
 
 )
 

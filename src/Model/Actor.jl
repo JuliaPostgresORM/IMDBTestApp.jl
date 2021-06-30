@@ -1,11 +1,11 @@
-mutable struct Actor <: IActor
+mutable struct Actor <: IActor 
 
   id::Union{Missing,String}
   birthDate::Union{Missing,Int16}
   gender::Union{Missing,Gender.GENDER}
   firstname::Union{Missing,String}
   lastname::Union{Missing,String}
-  actorFilmAssos::Union{Missing,Vector{Model.IActorFilmAsso}}
+  actorFilmAssoes::Union{Missing,Vector{Model.IActorFilmAsso}}
 
   Actor(args::NamedTuple) = Actor(;args...)
   Actor(;
@@ -14,7 +14,7 @@ mutable struct Actor <: IActor
     gender = missing,
     firstname = missing,
     lastname = missing,
-    actorFilmAssos = missing,
+    actorFilmAssoes = missing,
   ) = (
     x = new(missing,missing,missing,missing,missing,missing,);
     x.id = id;
@@ -22,8 +22,8 @@ mutable struct Actor <: IActor
     x.gender = gender;
     x.firstname = firstname;
     x.lastname = lastname;
-    x.actorFilmAssos = actorFilmAssos;
+    x.actorFilmAssoes = actorFilmAssoes;
     return x
   )
 
-end
+end 
